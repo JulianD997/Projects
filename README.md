@@ -1,3 +1,5 @@
-# Welcome to Python Branch!
+# senior-project
 
-All projects created with Python language will be stored here.
+Publication based on project:
+"EMG Based Simultaneous Wrist Motion Prediction Using Reinforcement Learning," 2020 IEEE 
+20th International Conference on Bioinformatics and Bioengineering (BIBE), 2020
