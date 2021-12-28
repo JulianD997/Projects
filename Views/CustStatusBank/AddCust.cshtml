@@ -1,0 +1,49 @@
+﻿@model TCSBanking.ViewModels.AddCustViewModel
+@{
+    ViewData["Title"] = "AddCust";
+}
+
+<html>
+<head>
+    <style>
+    body { background-image: url("https://www.dozens.com/wp-content/uploads/2019/08/shop_loop.gif"); background-repeat: no-repeat; background-position: right bottom; }
+    </style>
+</head>
+<body>
+
+    
+
+        <h1>Add Customer</h1>
+
+        <form asp-controller="CustStatusBank" asp-action="addCust" method="post">
+            <div class="form-group">
+                <label asp-for="@Model.Ssnid"> 9-Digit Social Security Number </label>
+                <input asp-for="@Model.Ssnid" class="form-control" placeholder="SSN">
+                <span asp-validation-for="@Model.Ssnid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Name">Customer Name </label>
+                <input asp-for="@Model.Name" class="form-control" placeholder="Name">
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Address1">Customer Address </label>
+                <input asp-for="@Model.Address1" class="form-control" placeholder="Address">
+                <span asp-validation-for="@Model.Address1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Age">Customer Age </label>
+                <input asp-for="@Model.Age" class="form-control" placeholder="Age">
+                <span asp-validation-for="@Model.Age" class="text-danger"></span>
+
+
+
+
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+  
+</body>
+</html>

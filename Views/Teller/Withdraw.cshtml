@@ -1,0 +1,29 @@
+﻿@model TCSBanking.ViewModels.DepWitViewModel
+
+
+<form asp-controller="Teller" asp-action="Withdraw" asp-route-id="@Model.AccountId" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Account.AccountId">Account Id</label>
+        <input disabled asp-for="@Model.Account.AccountId" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Account.CustomerId">Customer Id</label>
+        <input disabled asp-for="@Model.Account.CustomerId" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Account.AccountType">Account Type</label>
+        <input disabled asp-for="@Model.Account.AccountType" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Account.Balance">Current Balance</label>
+        <input disabled asp-for="@Model.Account.Balance" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Ammount">Withdraw</label>
+        <input asp-for="@Model.Ammount" class="form-control" placeholder="Amount to be withdrawn...">
+        <span asp-validation-for="@Model.Ammount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-md btn-block">Withdraw</button>
+    </div>
+</form>

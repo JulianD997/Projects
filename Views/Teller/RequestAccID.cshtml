@@ -1,0 +1,47 @@
+﻿@model TCSBanking.ViewModels.TellerSearchViewModel
+
+<h1>Please Enter your Account ID</h1>
+
+<form asp-controller="Teller" asp-action="RequestAccID" method="get">
+    <div class="form-group">
+        <label asp-for="@Model.AccountId"> Enter 10-digit account ID </label>
+        <input asp-for="@Model.AccountId" class="form-control" placeholder="AccountId">
+        <span asp-validation-for="@Model.AccountId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Get Account</button>
+</form>
+
+@if (Model.Account.Any())
+{
+    <table class="table table-striped mt-3">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Account Id</th>
+                <th scope="col">Customer Id</th>
+                <th scope="col">Account Type</th>
+                <th scope="col">Balance </th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        @foreach (var acc in Model.Account)
+        {
+            <tr>
+                <td>@acc.AccountId</td>
+                <td>@acc.CustomerId</td>
+                <td>@acc.AccountType</td>
+                <td>$@acc.Balance</td>
+                <td class="btn-group">
+                    <a class="btn btn-success" asp-action="Deposit" asp-controller="Teller" asp-route-id="@acc.AccountId">Deposit</a>
+                    <a class="btn btn-primary" asp-action="Withdraw" asp-controller="Teller" asp-route-id="@acc.AccountId">Withdraw</a>
+                </td>
+            </tr>
+        }
+    </table>
+}
+else @if (Model.AccountId > 0)
+{
+<div class="text-center text-danger">
+    <p>No Accounts under Account ID / SSN ID @Model.AccountId.</p>
+</div>
+}
+

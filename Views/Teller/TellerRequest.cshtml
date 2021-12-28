@@ -1,0 +1,19 @@
+﻿@model TCSBanking.ViewModels.TellerSearchViewModel
+@{
+    ViewData["Title"] = "TellerRequest";
+}
+
+<h1>Account Search</h1>
+
+<form>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose your input
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" asp-action="RequestAccID">Account ID</a>
+                    <a class="dropdown-item" asp-action="RequestCustID">Customer ID</a>
+                </div>
+            </div>
+</form>
+

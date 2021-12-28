@@ -1,0 +1,236 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TCSBanking</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .mynav_navbar {
+            overflow: hidden;
+            background-color: #183754;
+        }
+
+            .mynav_navbar a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+        .mynav_dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+            .mynav_dropdown .mynav_dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .mynav_navbar a:hover, .mynav_dropdown:hover .mynav_dropbtn {
+                background-color: red;
+            }
+
+        .mynav_dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .mynav_dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+                .mynav_dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+        .mynav_dropdown:hover .mynav_dropdown-content {
+            display: block;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .mynav2_navbar {
+            overflow: hidden;
+            background-color: #D8D8D8;
+        }
+
+            .mynav2_navbar a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+        .mynav2_dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+            .mynav2_dropdown .mynav2_dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .mynav2_navbar a:hover, .mynav2_dropdown:hover .mynav2_dropbtn {
+                background-color: red;
+            }
+
+        .mynav2_dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .mynav2_dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+                .mynav2_dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+        .mynav2_dropdown:hover .mynav2_dropdown-content {
+            display: block;
+        }
+        .logo-image {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 20%;
+            overflow: hidden;
+            left: 0px;
+            padding-top: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <div class="logo-image">
+                    <img src="https://p.kindpng.com/picc/s/675-6758771_xpertlab-tcs-logo-graphic-design-hd-png-download.png" alt="logo" class="img-fluid">
+                </div>
+                <a class="navbar-brand" asp-area="" asp-page="/Index" style="color:#183754"> TCS Online Banking</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="mynav_navbar">
+                    <a class="nav-link text-light" asp-controller="Home" asp-action="Index">Home</a>
+                    <div class="mynav_dropdown">
+                        <button class="mynav_dropbtn">
+                            Customer
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <div class="mynav_dropdown-content">
+                            <a class="nav-link text-dark" asp-controller="CustStatusBank" asp-action="AddCust">Create</a>
+                            <a class="nav-link text-dark" asp-controller="CustStatusBank" asp-action="ViewCustomerStatus">Customer Status</a>
+                            <a class="nav-link text-dark" asp-controller="CustStatusBank" asp-action="ViewUserInfo">Customer Info</a>
+                        </div>
+                    </div>
+                    <div class="mynav2_dropdown">
+                        <button class="mynav2_dropbtn">
+                            Account
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <div class="mynav2_dropdown-content">
+                            <a class="nav-link text-dark" asp-controller="AccountStatus" asp-action="Create">Create </a>
+                            <a asp-controller="AccountStatus" asp-action="Search">Delete</a>
+                            <a asp-controller="AccountStatus" asp-action="List">View</a>
+                        </div>
+                    </div>
+                    <div class="mynav2_dropdown">
+                        <button class="mynav2_dropbtn">
+                            Teller
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <div class="mynav2_dropdown-content">
+                            <a class="nav-link text-dark" asp-controller="Teller" asp-action="TellerRequest">Search Account </a>
+                        </div>
+                    </div>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="nav-link btn btn-link text-light">Logout</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a class="nav-link" asp-controller="Auth" asp-action="Login">Login</a>
+                        <a class="nav-link" asp-controller="Auth" asp-action="Register">Register</a>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <partial name="_StatusMessages"/>
+
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - TCS Online Banking - Contact US - (123)-456-7891
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

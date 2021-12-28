@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CustomerStatus>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Customer Status</h1>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Customer ID</th>
+            <th scope="col">SSN ID</th>
+            <th scope="col">Status</th>
+            <th scope="col">Message</th>
+            <th scope="col">Last Updated</th>
+            <th scope="col">Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var info in Model)
+        {
+            <tr>
+                <td>@info.CustomerId</td>
+                <td>@info.Ssnid</td>
+                <td>@info.Status</td>
+                <td>@info.Message</td>
+                <td>@info.LastUpdated</td>
+                <td class="text-center"><a class = "btn btn-primary" asp-controller="CustStatusBank" asp-action="ViewCustomerStatus">Refresh</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

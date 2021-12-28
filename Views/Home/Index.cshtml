@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HOME</title>
+
+    <style>
+        .box {
+            position: relative;
+            display: inline-block; /* Make the width of box same as image */
+        }
+
+            .box .text {
+                position: absolute;
+                z-index: 999;
+                margin: 0 auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+                top: 80%; /* Adjust this value to move the positioned div up and down */
+                background: rgba(0, 0, 0, 0.8);
+                font-family: Arial,sans-serif;
+                color: #fff;
+                width: 60%;
+            }
+
+        .column {
+            float: left;
+            width: 48.33%;
+            padding: 5px;
+        }
+
+        /* Clear floats after image containers */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
+    body { background-image: url("https://media.tenor.com/images/dcac6c1f2450b9bdcda0320418997463/tenor.gif"); background-repeat: no-repeat; background-position: right bottom; }
+    </style>
+</head>
+<body>
+    <a asp-controller="Home" asp-action="Index"></a>
+    <h2>Welcome To TCS Online Banking</h2>
+    <div class="row">
+
+        <div class="column">
+            <div class="box">
+                <img src="https://image.freepik.com/free-vector/people-waiting-queue-bank-machine_74855-4458.jpg" alt="Login" style="width:100%">
+                <div class="text">
+                    <a style="color:white;" asp-controller="Auth" asp-action="Login"><h1>Login In To Bank</h1></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="column">
+            <div class="box">
+
+                <img src="https://image.freepik.com/free-vector/saving-money-financial-concept_74855-7849.jpg" alt="Deposit" style="width:100%">
+                <div class="text">
+                    <a style="color:white;"  asp-controller="Teller" asp-action="TellerRequest"><h1>Deposit</h1></a>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box">
+                <img src="  https://image.freepik.com/free-vector/finance-managers-working-with-clients-isolated-flat-vector-illustration-cartoon-people-sitting-bank-office-money-exchange_74855-8370.jpg" alt="Create" style="width:100%">
+                <div class="text">
+                    <a style="color:white;" asp-controller="CustStatusBank" asp-action="AddCust"><h1>Create Customer</h1></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box">
+                <img src="  https://image.freepik.com/free-vector/finance-managers-working-with-clients-isolated-flat-vector-illustration-cartoon-people-sitting-bank-office-money-exchange_74855-8370.jpg" alt="Create Acc" style="width:100%">
+                <div class="text">
+                    <a style="color:white;"  asp-controller="AccountStatus" asp-action="Create"><h1>Create Account</h1></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box">
+                <img src="https://image.freepik.com/free-vector/people-protecting-their-cash_74855-5553.jpg" alt="Create" style="width:100%">
+                <div class="text">
+                    <a style="color:white;" asp-controller="Auth" asp-action="Register"><h1>Register</h1></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box">
+                <img src="https://image.freepik.com/free-vector/bank-customer-getting-loan-man-wheeling-cart-with-cash-flat-vector-illustration-finance-money-banking-service_74855-8233.jpg" alt="Create" style="width:100%">
+                <div class="text">
+                    <a style="color:white;" asp-controller="Teller" asp-action="TellerRequest"><h1>Deposit</h1></a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+

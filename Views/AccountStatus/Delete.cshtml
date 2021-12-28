@@ -1,0 +1,33 @@
+﻿@model TCSBanking.ViewModels.AccountDeleteViewModel
+
+
+    <form asp-controller="AccountStatus" asp-action="DeleteAccount" asp-route-id="@Model.AccountId" method="post">
+        <div class="form-group">
+            <label asp-for="@Model.AccountId">Account Id</label>
+            <input disabled asp-for="@Model.AccountId" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.CustomerId">Customer Id</label>
+            <input disabled asp-for="@Model.CustomerId" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.AccountType">Account Type</label>
+            <input disabled asp-for="@Model.AccountType" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Status">Account Type</label>
+            <input disabled asp-for="@Model.Status" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Message">Account Type</label>
+            <input disabled asp-for="@Model.Message" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.LastUpdated">Account Type</label>
+            <input disabled asp-for="@Model.LastUpdated" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-md btn-block">Delete</button>
+        </div>
+    </form>
+

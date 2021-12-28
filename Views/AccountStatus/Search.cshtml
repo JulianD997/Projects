@@ -1,0 +1,56 @@
+﻿@model TCSBanking.ViewModels.AccountSearchViewModel
+
+
+<h1>Search Accounts</h1>
+
+<form asp-controller="AccountStatus" asp-action="Search" method="get">
+    <div class="form-group">
+        <label asp-for="@Model.CustomerId">Customer Id / SSN Id</label>
+        <input asp-for="@Model.CustomerId" class="form-control" placeholder="Customer Id or SSN Id...">
+        <span asp-validation-for="@Model.CustomerId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-md btn-block">Get Accounts</button>
+    </div>
+</form>
+
+@if (Model.Accounts.Any())
+{
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Customer ID</th>
+                <th>Account ID</th>
+                <th>Account Type</th>
+                <th>Account Status</th>
+                <th>Message</th>
+                <th>Last Updated</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var account in Model.Accounts)
+            {
+                <tr>
+                    <td>@account.CustomerId</td>
+                    <td>@account.AccountId</td>
+                    <td>@account.AccountType</td>
+                    <td>@account.Status</td>
+                    <td>@account.Message</td>
+                    <td>@account.LastUpdated</td>
+                    <td class="text-center">
+                        <a  class="btn btn-danger" asp-action="Delete" asp-controller="AccountStatus" asp-route-id="@account.AccountId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else @if (Model.CustomerId > 0)
+{
+<div class="text-center text-danger">
+    <p>No Accounts under Customer ID / SSN ID @Model.CustomerId.</p>
+</div>
+}

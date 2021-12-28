@@ -1,0 +1,36 @@
+﻿@model TCSBanking.ViewModels.DeleteCustViewModel
+
+@{ 
+    ViewData["Title"] = "DeleteCust";
+}
+
+<h1>Delete Customer</h1>
+<form asp-controller="CustStatusBank" asp-action="deleteCust" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Ssnid"> SSN Id </label>
+        <input asp-for="@Model.Ssnid" class="form-control" placeholder="Name" />
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Id"> Customer Id </label>
+        <input asp-for="@Model.Id" class="form-control" placeholder="Name" />
+        <span asp-validation-for="@Model.Id" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Name"> Customer Name </label>
+        <input asp-for="@Model.Name" class="form-control" placeholder="Name" />
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Age"> Customer Age </label>
+        <input asp-for="@Model.Age" class="form-control" placeholder="Name" />
+        <span asp-validation-for="@Model.Age" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Address1"> Customer Address </label>
+        <input asp-for="@Model.Address1" class="form-control" placeholder="Name" />
+        <span asp-validation-for="@Model.Address1" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

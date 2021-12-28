@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TCSBanking.Models.AccountStatus>
+
+<h1>Account Status</h1>
+
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Customer ID</th>
+            <th>Account ID</th>
+            <th>Account Type</th>
+            <th>Account Status</th>
+            <th>Message</th>
+            <th>Last Updated</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+<tr>
+    <td colspan="3" class="text-center">
+        <h4>No Accounts Found!</h4>
+    </td>
+</tr> }
+            else
+            {
+
+
+@foreach (var account in Model)
+{
+<tr>
+    <td>@account.CustomerId</td>
+    <td>@account.AccountId</td>
+    <td>@account.AccountType</td>
+    <td>@account.Status</td>
+    <td>@account.Message</td>
+    <td>@account.LastUpdated</td>
+    <td class="text-center">
+        <a class="btn btn-primary" asp-action="List" asp-route-id="@account.AccountId">Refresh</a>
+    </td>
+</tr>}}
+    </tbody>
+</table>
+
+@if (Model.Any())
+{
+    <div class="text-center">
+        <a asp-action="List" class="btn btn-secondary">Refresh the list</a>
+    </div>
+}

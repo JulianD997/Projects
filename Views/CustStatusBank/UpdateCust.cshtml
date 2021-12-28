@@ -1,0 +1,52 @@
+﻿@model TCSBanking.ViewModels.EditCustViewModel
+@{
+    ViewData["Title"] = "UpdateCust";
+}
+
+<h1>Update Customer</h1>
+
+<div class="align-content-md-center">
+    <label asp-for="@Model.Ssnid"> Customer SSN ID </label>
+    <label asp-for="@Model.Ssnid"> @Model.Ssnid </label>
+</div>
+<div class="align-content-md-center">
+    <label asp-for="@Model.Id"> Customer ID </label>
+    <label asp-for="@Model.Id"> @Model.Id </label>
+</div>
+
+<form asp-controller="CustStatusBank" asp-action="UpdateCust" method="post">
+    <input type="hidden" asp-for="@Model.Id" />
+    <input type="hidden" asp-for="@Model.Ssnid" />
+    <div class="align-content-md-center">
+        <label asp-for="@Model.Name"> Old Customer Name: </label>
+        <label asp-for="@Model.Name"> @Model.Name </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Name"> New Customer Name: </label>
+        <input asp-for="@Model.Name" class="form-control" placeholder="Name" />
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+
+    <div class="align-content-md-center">
+        <label asp-for="@Model.Address1"> Old Address: </label>
+        <label asp-for="@Model.Address1"> @Model.Address1 </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Address1"> New Address </label>
+        <input asp-for="@Model.Address1" class="form-control" placeholder="Name" />
+        <span asp-validation-for="@Model.Address1" class="text-danger"></span>
+    </div>
+
+
+    <div class="align-content-md-center">
+        <label asp-for="@Model.Age"> Old Customer Age: </label>
+        <label asp-for="@Model.Age"> @Model.Age </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Age"> New Customer Age </label>
+        <input asp-for="@Model.Age" class="form-control" placeholder="Name" />
+        <span asp-validation-for="@Model.Age" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
