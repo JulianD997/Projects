@@ -1,7 +1,6 @@
-# Welcome to Projects Repo!
+# senior-project
 
-Repository created for storing currently working on and previously created projects. The projects can consist of any language and a branch will be created for each language.
+Hello world!!
 
-Projects can be as basic as a 'Hello World' program to as complex as an application or website. 
-
-This will be used as a storage space for all projects worked on.
+# example git commit command
+git -c user.name='username' -c user.email='email' commit -m 'hello world!!!'
