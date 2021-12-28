@@ -1,0 +1,76 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+    Console.WriteLine ("\t\t\t\tBasic Calcultor Application");
+    Console.WriteLine("\nEnter first number:");
+    int x = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("\nEnter second number:");
+    int y = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Choose your option:");
+    Console.WriteLine("\n1 - Addition");
+    Console.WriteLine("2 - Subtraction");
+    Console.WriteLine("3 - Multiplication");
+    Console.WriteLine("4 - Division");
+    Console.WriteLine("5 - Perform Addition, Subtraction, Multiplication, Division\n");
+    int option = Convert.ToInt32(Console.ReadLine());
+
+    switch(option)
+    {
+      case 1:
+        Addition(x,y);
+        break;
+      case 2:
+        Subtraction(x,y);
+        break;
+      case 3:
+        Multiplication(x,y);
+        break;
+      case 4:
+        Division(x,y);
+        break;
+      case 5:
+        Together(x,y);
+        break;
+      default:
+        break;
+    }
+  }
+      
+    public static void Addition(int a, int b)
+    {
+      int sum = a + b;
+      Console.WriteLine("The result when adding together is: " + sum);
+    }
+
+    public static void Subtraction(int a, int b)
+    {
+      int sum = a - b;
+      Console.WriteLine("The result when subtracting these is: " + sum);
+    }
+
+    public static void Multiplication(int a, int b)
+    {
+      int sum = a * b;
+      Console.WriteLine("The result when multiplying these together is: " + sum);
+    }
+
+    public static void Division(int a, int b)
+    {
+      int sum = a / b;
+      Console.WriteLine("The result when dividing these is: " + sum);
+    }
+
+    public static void Together(int a, int b)
+    {
+      int sum = a + b;
+      int equal = a - b;
+      int product = a * b;
+      int divid = a / b;
+      Console.WriteLine("The result when adding together is: " + sum);
+      Console.WriteLine("The result when subtracting these is: " + equal);
+      Console.WriteLine("The result when multiplying these together is: " + product);
+      Console.WriteLine("The result when dividing these is: " + divid);
+    }
+}
